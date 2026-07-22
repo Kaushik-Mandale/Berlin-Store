@@ -4,16 +4,16 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Zap, ArrowRight } from 'lucide-react';
 
-const SALE_END = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000 + 12 * 60 * 60 * 1000);
+const SALE_END_TIME = Date.now() + 3 * 24 * 60 * 60 * 1000 + 12 * 60 * 60 * 1000;
 
-function useCountdown(target: Date) {
+function useCountdown(targetTime: number) {
   const [mounted, setMounted] = useState(false);
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 });
 
   useEffect(() => {
     setMounted(true);
     const calc = () => {
-      const diff = Math.max(0, target.getTime() - Date.now());
+      const diff = Math.max(0, targetTime - Date.now());
       return {
         d: Math.floor(diff / 86400000),
         h: Math.floor((diff % 86400000) / 3600000),
@@ -24,7 +24,7 @@ function useCountdown(target: Date) {
     setTime(calc());
     const id = setInterval(() => setTime(calc()), 1000);
     return () => clearInterval(id);
-  }, [target]);
+  }, [targetTime]);
 
   return { ...time, mounted };
 }
@@ -43,7 +43,7 @@ function Pad({ n, label }: { n: number; label: string }) {
 }
 
 export default function PromoBanner() {
-  const { d, h, m, s, mounted } = useCountdown(SALE_END);
+  const { d, h, m, s, mounted } = useCountdown(SALE_END_TIME);
 
   return (
     <section
