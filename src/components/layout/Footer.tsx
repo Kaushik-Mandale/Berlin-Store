@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -56,7 +57,7 @@ const footerLinks = {
   ],
 };
 
-const social = [
+const social: Array<{ icon: React.ComponentType<IconProps>; href: string; label: string }> = [
   { icon: SocialIcons.Instagram, href: '#', label: 'Instagram' },
   { icon: SocialIcons.Facebook, href: '#', label: 'Facebook' },
   { icon: SocialIcons.Twitter, href: '#', label: 'Twitter' },
