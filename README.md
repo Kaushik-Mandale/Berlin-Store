@@ -203,7 +203,7 @@ berlin-store/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/Berlin-Store.git
+git clone https://github.com/Kaushik-Mandale/Berlin-Store.git
 cd Berlin-Store
 ```
 
@@ -336,7 +336,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Built with passion for fashion and technology** 🖤
 
-[![Star on GitHub](https://img.shields.io/github/stars/YOUR_USERNAME/Berlin-Store?style=social)](https://github.com/YOUR_USERNAME/Berlin-Store)
+[![Star on GitHub](https://img.shields.io/github/stars/Kaushik-Mandale/Berlin-Store?style=social)](https://github.com/Kaushik-Mandale/Berlin-Store)
 
 *If you find this project useful, please consider giving it a ⭐*
 
