@@ -24,7 +24,7 @@ function useCountdown(target: Date) {
     setTime(calc());
     const id = setInterval(() => setTime(calc()), 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [target]);
 
   return { ...time, mounted };
 }

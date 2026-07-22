@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -125,7 +125,7 @@ function ProductCard({ product, view }: { product: Product; view: 'grid' | 'list
   );
 }
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams();
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [sort, setSort] = useState('new');
@@ -312,5 +312,17 @@ export default function ShopPage() {
         @keyframes slideInLeft { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
       `}</style>
     </>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen pt-32 text-center text-[#7A7571] font-display text-xl">
+        Loading shop...
+      </div>
+    }>
+      <ShopContent />
+    </Suspense>
   );
 }
